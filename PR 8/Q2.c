@@ -1,20 +1,38 @@
 #include<stdio.h>
-
-int main()
+int cube(int *ptr,int i,int j,int n)
 {
-    int a=10,b=5;
-    swap(&a,&b);
+	
+	int c[n][n];
+	
+	printf("Cubes of all elements :-");
+	for(i=0;i<n;i++)
+	{
+		for(j=0;j<n;j++)
+		{
+
+			c[i][j] = *(ptr + i * n + j) * *(ptr + i * n + j) * *(ptr + i * n + j);
+			printf("%d ",c[i][j]);		
+			
+		}
+	}
 }
 
-void swap(int *a,int *b)
+main()
 {
-    int c=*a;
-    *a=*b;
-    *b=c;
-    
-    printf("---Swap Value---\n");
-    
-    printf("A :- %u\n",*a);
-    printf("B :- %u\n",*b);
-    
+	int n,i,j;
+	printf("Enter size an array :- ");
+	scanf("%d",&n);
+	
+	int a[n][n];
+	for(i=0;i<n;i++)
+	{
+		for(j=0;j<n;j++)
+		{
+			printf("Enter a[%d][%d] :- ",i,j);
+			scanf("%d",&a[i][j]);
+		}
+	}
+	
+	cube(a,i,j,n);
+	
 }
